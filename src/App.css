@@ -307,6 +307,10 @@ body {
   margin: auto;
 }
 
+.mx-auto {
+  margin: auto 0;
+}
+
 .mt-3 {
   margin-top: 3rem;
 }
