@@ -13,10 +13,10 @@ export const LikePhotoApp = () => {
   const handleClick = () => {
     if (!like) {
       setLike(true);
-      setCount((prev) => prev + 1);
+      setCount(count + 1);
     } else {
       setLike(false);
-      setCount((prev) => prev - 1);
+      setCount(count - 1);
     }
   };
   return (
