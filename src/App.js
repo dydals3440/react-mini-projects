@@ -1,10 +1,10 @@
 import './App.css';
-import { Alerts } from './projects/05-Alerts/Alerts';
+import { TemperatureControllerApp } from './projects/06-TemparateControllers/TemperatureControllerApp';
 
 function App() {
   return (
     <div className='App'>
-      <Alerts />
+      <TemperatureControllerApp />
     </div>
   );
 }
