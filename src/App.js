@@ -1,12 +1,9 @@
 import './App.css';
-import { TemperatureControllerApp } from './projects/06-TemparateControllers/TemperatureControllerApp';
+
+import FilterContactsApp from './projects/14-filter-contacts-app/FilterContactsApp';
 
 function App() {
-  return (
-    <div className='App'>
-      <TemperatureControllerApp />
-    </div>
-  );
+  return <FilterContactsApp />;
 }
 
 export default App;
