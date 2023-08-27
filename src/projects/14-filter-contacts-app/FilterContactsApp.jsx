@@ -33,6 +33,7 @@ export default function FilterContactsApp() {
               .toLocaleLowerCase()
               .includes(searchContact.toLocaleLowerCase())
           ) {
+            console.log(searchContact, contact);
             return contact;
           }
         }).map((contact) => (
