@@ -1,10 +1,9 @@
 import './App.css';
 
-import FilterContactsApp from './projects/14-filter-contacts-app/FilterContactsApp';
-import Store from './projects/27-course-store/Store';
+import ImagePost from './projects/30-lazy-loading/ImagePost';
 
 function App() {
-  return <Store />;
+  return <ImagePost />;
 }
 
 export default App;
