@@ -1,9 +1,8 @@
 import './App.css';
-
-import ImagePost from './projects/30-lazy-loading/ImagePost';
+import NotesApp from './projects/16-notes-app/NotesApp';
 
 function App() {
-  return <ImagePost />;
+  return <NotesApp />;
 }
 
 export default App;
