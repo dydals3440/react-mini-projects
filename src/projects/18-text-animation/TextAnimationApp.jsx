@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../components/Button';
 import FormGroup from '../components/FormGroup';
+import AnimatedText from 'react-animated-text-content';
+
 export default function TextAnimationApp() {
+  const [inputValue, setInputValue] = useState('Matthew');
+  const [animatedText, setAnimatedText] = useState('Text');
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+  const handleClear = () => {
+    setAnimatedText(inputValue);
+    setInputValue('');
+  };
   return (
     <div className='container text-center'>
       <form
@@ -13,11 +24,26 @@ export default function TextAnimationApp() {
           labelText={'Type in your text to be animated'}
           inputType={'text'}
           placeholder={'your text'}
-          values={''}
+          values={inputValue}
+          onChange={handleInputChange}
         />
-        <Button text='clear' btnClass={'btn-large btn-danger'} />
+        <Button
+          text='clear'
+          btnClass={'btn-large btn-danger'}
+          onClick={handleClear}
+        />
       </form>
-      Animate Text
+      {animatedText && (
+        <AnimatedText
+          type='char'
+          interval={0.04}
+          duration={1.1}
+          animation={{ x: '-100px', y: '-150px', ease: 'linear' }}
+          className='title'
+        >
+          {animatedText}
+        </AnimatedText>
+      )}
     </div>
   );
 }
