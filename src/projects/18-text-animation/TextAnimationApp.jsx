@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '../components/Button';
 import FormGroup from '../components/FormGroup';
 import AnimatedText from 'react-animated-text-content';
 
 export default function TextAnimationApp() {
-  const [inputValue, setInputValue] = useState('Matthew');
-  const [animatedText, setAnimatedText] = useState('Text');
+  const [inputValue, setInputValue] = useState('');
+  const [animatedText, setAnimatedText] = useState('');
+
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
+
   const handleClear = () => {
     setAnimatedText(inputValue);
-    setInputValue('');
+    setInputValue(() => '');
   };
+
+  const inputText = useRef(null);
+
+  useEffect(() => {
+    if (inputText.current) {
+      inputText.current.focus();
+    }
+  });
+
   return (
     <div className='container text-center'>
       <form
-        action=''
         className='container d-flex mt-4'
         onSubmit={(e) => e.preventDefault()}
       >
@@ -26,6 +36,7 @@ export default function TextAnimationApp() {
           placeholder={'your text'}
           values={inputValue}
           onChange={handleInputChange}
+          ref={inputText}
         />
         <Button
           text='clear'
