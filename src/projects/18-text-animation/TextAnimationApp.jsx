@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../components/Button';
+import FormGroup from '../components/FormGroup';
 export default function TextAnimationApp() {
   return (
     <div className='container text-center'>
@@ -8,10 +9,12 @@ export default function TextAnimationApp() {
         className='container d-flex mt-4'
         onSubmit={(e) => e.preventDefault()}
       >
-        <div className='form-group'>
-          <label>Type in your text to be animated</label>
-          <input type='text' placeholder='Your Text' />
-        </div>
+        <FormGroup
+          labelText={'Type in your text to be animated'}
+          inputType={'text'}
+          placeholder={'your text'}
+          values={''}
+        />
         <Button text='clear' btnClass={'btn-large btn-danger'} />
       </form>
       Animate Text
