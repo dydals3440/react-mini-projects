@@ -5,8 +5,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function NotesApp() {
   const [notes, setNotes] = useState([]);
+  // 함수가 호출될떄마다 newNote가 전달되지 않았다면 undefined가 될 것.
   const addNewNote = (newNote) => {
+    // 1. 기존의 노트를 유지하고, 새로운 노트를 추가해줌
     const newNotes = [...notes, newNote];
+    // 2. 노트의 아이디가 없는경우, 유티크한 아이디를 달아줌.
     newNotes.filter((note) => !note.id && (note.id = uuidv4()));
     setNotes(newNotes);
   };
@@ -22,6 +25,7 @@ export default function NotesApp() {
   ];
   const randomizeBg = () => {
     const random = Math.floor(Math.random() * cards.length);
+    console.log(random);
     return cards[random];
   };
 
