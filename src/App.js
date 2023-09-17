@@ -1,9 +1,9 @@
 import './App.css';
-import NotesApp from './projects/16-notes-app/NotesApp';
-import TextAnimationApp from './projects/18-text-animation/TextAnimationApp';
+
+import AnimatedLoginForm from './projects/23-animated-login/AnimatedLoginForm';
 
 function App() {
-  return <TextAnimationApp />;
+  return <AnimatedLoginForm />;
 }
 
 export default App;
