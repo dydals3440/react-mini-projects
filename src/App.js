@@ -1,8 +1,8 @@
 import './App.css';
-import SliderApp from './projects/09-slider/SliderApp';
+import PhoneBookApp from './projects/24-phone-book/PhoneBookApp';
 
 function App() {
-  return <SliderApp />;
+  return <PhoneBookApp />;
 }
 
 export default App;
