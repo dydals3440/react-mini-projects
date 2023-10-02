@@ -5,6 +5,7 @@ import { FaAddressBook, FaArrowsAltV } from 'react-icons/fa';
 export default function SearchFilter({
   handleToggleContacts,
   handleToggleSortAZ,
+  handleSearchContact,
 }) {
   return (
     <section className='text-center'>
@@ -19,6 +20,7 @@ export default function SearchFilter({
         placeholder='Search by first name'
         className='mb-2 mx-1'
         style={{ padding: '.3rem .5rem' }}
+        onChange={(e) => handleSearchContact(e.target.value)}
       />
       <Button
         btnClass={''}
