@@ -1,10 +1,35 @@
 import React from 'react';
 import Contact from './Contact';
 
-export default function ContactList() {
+export default function ContactList({ contacts }) {
+  const generateRandomImg = () => {
+    const types = [
+      'male',
+      'female',
+      'human',
+      'identicon',
+      'initials',
+      'bottts',
+      'avataars',
+      'jdenticon',
+      'gridy',
+      'micah',
+    ];
+    return types[Math.floor(Math.random() * types.length)];
+  };
   return (
-    <div>
-      <Contact />
-    </div>
+    <ul>
+      {contacts.map((contact, id) => {
+        return (
+          <Contact
+            key={id}
+            icon={`https://avatars.dicebear.com/api/${generateRandomImg()}/john.svg?`}
+            firstName={contact.first_name}
+            lastName={contact.last_name}
+            phoneNr={contact.phone}
+          />
+        );
+      })}
+    </ul>
   );
 }
