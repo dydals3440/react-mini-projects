@@ -1,15 +1,36 @@
 import React from 'react';
 
-export default function SliderComponent() {
+export default function SliderComponent({
+  setValue,
+  handleInput,
+  bgColor,
+  textColor,
+}) {
+  const sliderStyle = {
+    appearance: 'none',
+    width: '100%',
+    height: 25,
+    // background: !bgColor ? 'lightgray' : bgColor,
+    background: 'lightgray',
+    cursor: 'pointer',
+    opacity: 0.7,
+  };
   return (
     <div className='container d-flex flex-column' style={{ gap: 100 }}>
-      <input type='range' min='0' max={100} />
+      <input
+        type='range'
+        min='0'
+        max={100}
+        value={setValue}
+        onInput={handleInput}
+        style={sliderStyle}
+      />
       <div
         style={{
-          color: 'black',
-          background: 'lightgray',
-          height: `30px`,
-          width: `30px`,
+          color: !textColor ? 'black' : textColor,
+          background: !bgColor ? 'lightgray' : bgColor,
+          height: `${setValue * 3}px`,
+          width: `${setValue * 3}px`,
           fontWeight: 600,
           display: 'flex',
           justifyContent: 'center',
@@ -17,7 +38,7 @@ export default function SliderComponent() {
           borderRadius: '50%',
         }}
       >
-        <span>circle</span>
+        <span>{setValue}</span>
       </div>
     </div>
   );
