@@ -48,15 +48,15 @@ const animateLogo = keyframes`
         transform: rotate(45deg);
     }
         50% {
-        border-radius: 25%;
+        border-radius: 50%;
         transform: rotate(90deg);
     }
         75% {
-        border-radius:25%;
+        border-radius:75%;
         transform: rotate(180deg);
     }
         100% {
-        border-radius:25%;
+        border-radius:100%;
         transform: scale(0);
     }
 `;
