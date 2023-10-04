@@ -1,8 +1,9 @@
 import './App.css';
-import PhoneBookApp from './projects/24-phone-book/PhoneBookApp';
+
+import Synthesizer from './projects/29-speech-synthesizer/Synthesizer';
 
 function App() {
-  return <PhoneBookApp />;
+  return <Synthesizer />;
 }
 
 export default App;
