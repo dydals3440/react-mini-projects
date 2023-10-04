@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { AiFillRobot, AiOutlineRobot } from 'react-icons/ai';
-
-function SpeechNarrator({ text }) {
+export default function SpeechNarrator({ text }) {
   const splitText = (text, from, to) => [
     text.slice(0, from),
     text.slice(from, to),
     text.slice(to),
   ];
+
   const [highlightSection, setHighlightSection] = useState({
     from: 0,
     to: 0,
@@ -33,26 +33,47 @@ function SpeechNarrator({ text }) {
       </div>
     );
   };
-
+  //   Synth states
+  const [showPaly, setShowPlay] = useState(false);
+  const [rateValue, setRateValue] = useState(1);
+  //   Handles
+  const handlePlay = () => {
+    synth.speak(utterance);
+    synth.resume();
+    setShowPlay(true);
+  };
+  const handlePause = () => {
+    synth.pause();
+    setShowPlay(false);
+  };
+  const handleRateValue = (e) => {
+    setRateValue(e.target.value);
+  };
+  utterance.rate = rateValue;
   return (
     <div className='container d-flex flex-column my-3' style={{ gap: 30 }}>
       <h1>Speech Narrator</h1>
-      <AiFillRobot style={robotStyle} className='text-primary' />
-      <AiOutlineRobot style={robotStyle} />
+      {showPaly ? (
+        <AiFillRobot
+          style={robotStyle}
+          className='text-primary'
+          onClick={handlePause}
+        />
+      ) : (
+        <AiOutlineRobot style={robotStyle} onClick={handlePlay} />
+      )}
       <HighlightedText text={text} {...highlightSection} />
       <div className='form-group'>
-        <label htmlFor='range'>Rate: {'rate'}</label>
+        <label className='text-center'>말하기 속도: {rateValue}</label>
         <input
           type='range'
-          id='range'
           step='.1'
           max='2'
           min='.5'
-          value={'rateValue'}
+          value={rateValue}
+          onChange={handleRateValue}
         />
       </div>
     </div>
   );
 }
-
-export default SpeechNarrator;
