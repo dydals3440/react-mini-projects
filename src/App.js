@@ -1,9 +1,8 @@
 import './App.css';
-
-import Synthesizer from './projects/29-speech-synthesizer/Synthesizer';
+import PopupApp from './projects/11-MagicPopup/PopupApp';
 
 function App() {
-  return <Synthesizer />;
+  return <PopupApp />;
 }
 
 export default App;
