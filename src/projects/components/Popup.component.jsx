@@ -9,22 +9,27 @@ function Popup({ type, title, text, handleClose }) {
     width: '100vw',
     background: 'rgba(0, 0, 0, 0.1)',
     zIdex: '-1',
+    textAlign: 'left',
   };
   const popupStyle = {
     position: 'relative',
     margin: '40vh auto',
     zIdex: '1',
   };
-  let times = '$times;';
+  //   let times = '$times;';
   return (
     <div style={popupContainer}>
       <div className={`${type}`} style={popupStyle}>
         <div className='alert-close'>
-          <div className='d-flex flex-column'>
+          <div className='d-flex flex-column '>
             <h4 className='mb-1'>{title && title}</h4>
             <p>{text && text}</p>
           </div>
-          <Button btnClass={'btn-close'} text={`x`} onClick={handleClose} />
+          <Button
+            btnClass={'btn-close'}
+            text={`x`}
+            onClick={() => handleClose(false)}
+          />
         </div>
       </div>
     </div>
